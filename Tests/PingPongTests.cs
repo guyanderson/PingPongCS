@@ -1,42 +1,47 @@
+using Nancy;
 using Xunit;
-namespace PingPong
+using System.Collections.Generic;
+using System.Diagnostics;
+
+namespace PingPong.Objects
 {
   public class PingPongTest
   {
     [Fact]
     public void IsNumberDivisibleBy15_ForPingPong_true()
     {
-      PingPong testPingPong = new PingPong();
-      Assert.Equal(true, testPingPong.IsNumberDivisibleBy15(15));
+      PingPong testPingPong = new PingPong(15);
+      Assert.Equal(true, testPingPong.IsNumberDivisibleBy15(testPingPong.GetNumber()));
     }
+    [Fact]
     public void IsNumberDivisibleBy15_ForPingPong_false()
     {
-      PingPong testPingPong = new PingPong();
-      Assert.Equal(false, testPingPong.IsNumberDivisibleBy15(14));
+      PingPong testPingPong = new PingPong(14);
+      Assert.Equal(false, testPingPong.IsNumberDivisibleBy15(testPingPong.GetNumber()));
     }
     [Fact]
     public void IsNumberDivisibleBy5_ForPong_true()
     {
-      PingPong testPong = new PingPong();
-      Assert.Equal(true, testPong.IsNumberDivisibleBy5(5));
+      PingPong testPingPong = new PingPong(5);
+      Assert.Equal(true, testPingPong.IsNumberDivisibleBy5(testPingPong.GetNumber()));
     }
     [Fact]
     public void IsNumberDivisibleBy5_ForPong_false()
     {
-      PingPong testPong = new PingPong();
-      Assert.Equal(false, testPong.IsNumberDivisibleBy5(4));
+      PingPong testPingPong = new PingPong(4);
+      Assert.Equal(false, testPingPong.IsNumberDivisibleBy5(testPingPong.GetNumber()));
   }
     [Fact]
     public void IsNumberDivisibleBy3_ForPing_true()
     {
-      PingPong testPing = new PingPong();
-      Assert.Equal(true, testPing.IsNumberDivisibleBy3(3));
+      PingPong testPingPong = new PingPong(3);
+      Assert.Equal(true, testPingPong.IsNumberDivisibleBy3(testPingPong.GetNumber()));
     }
     [Fact]
     public void IsNumberDivisibleBy3_ForPing_false()
     {
-      PingPong testPing = new PingPong();
-      Assert.Equal(false, testPing.IsNumberDivisibleBy3(4));
+      PingPong testPingPong = new PingPong(2);
+      Assert.Equal(false, testPingPong.IsNumberDivisibleBy3(testPingPong.GetNumber()));
     }
   }
 }
